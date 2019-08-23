@@ -203,13 +203,11 @@ public class VerticalCardSwiper: UIView {
     }
 
     private func performUpdates(updateClosure: () -> Void) {
-        UIView.performWithoutAnimation {
-            self.verticalCardSwiperView.performBatchUpdates({
-                updateClosure()
-            }, completion: { [weak self] _ in
-                self?.verticalCardSwiperView.collectionViewLayout.invalidateLayout()
-            })
-        }
+        self.verticalCardSwiperView.performBatchUpdates({
+            updateClosure()
+        }, completion: { [weak self] _ in
+            self?.verticalCardSwiperView.collectionViewLayout.invalidateLayout()
+        })
     }
 }
 

@@ -38,11 +38,18 @@ internal class VerticalCardSwiperFlowLayout: UICollectionViewFlowLayout {
     /// Sets how many cards of the stack are visible in the background. Default is 1.
     internal var stackedCardsCount: Int = 1
 
+    private var updateItems = [UICollectionViewUpdateItem]()
+
     internal override func prepare() {
         super.prepare()
 
         assert(collectionView?.numberOfSections == 1, "Number of sections should always be 1.")
         assert(collectionView?.isPagingEnabled == false, "Paging on the collectionview itself should never be enabled. To enable cell paging, use the isPagingEnabled property of the VerticalCardSwiperFlowLayout instead.")
+    }
+
+    override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
+        super.prepare(forCollectionViewUpdates: updateItems)
+        self.updateItems = updateItems
     }
 
     internal override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
@@ -72,13 +79,64 @@ internal class VerticalCardSwiperFlowLayout: UICollectionViewFlowLayout {
     }
 
     internal override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        // attributes for swiping card away
-        return self.layoutAttributesForItem(at: itemIndexPath)
+        for updateItem in updateItems {
+            switch updateItem.updateAction {
+            case .delete:
+                if updateItem.indexPathBeforeUpdate == itemIndexPath {
+                    let attributes = layoutAttributesForItem(at: itemIndexPath)
+                    attributes?.zIndex = -1
+                    attributes?.transform = .init(scaleX: 0.1, y: 0.1)
+                    return attributes
+                }
+            case .move:
+                if updateItem.indexPathBeforeUpdate == itemIndexPath {
+                    return layoutAttributesForItem(at: updateItem.indexPathAfterUpdate!)
+                }
+            case .insert, .none, .reload:
+                break
+            @unknown default:
+                break
+            }
+        }
+        let theFinalIndex = finalIndex(for: itemIndexPath)
+        let shiftedIndexPath = IndexPath(item: theFinalIndex, section: itemIndexPath.section)
+
+        return layoutAttributesForItem(at: shiftedIndexPath)
     }
 
     internal override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        // attributes for adding card
-        return self.layoutAttributesForItem(at: itemIndexPath)
+        return layoutAttributesForItem(at: itemIndexPath)
+    }
+
+    private func finalIndex(for indexPath: IndexPath) -> Int {
+        var newIndex = indexPath.item
+        for updateItem in updateItems {
+            switch updateItem.updateAction {
+            case .insert:
+                if updateItem.indexPathAfterUpdate!.item <= newIndex {
+                    newIndex += 1
+                }
+            case .delete:
+                if updateItem.indexPathBeforeUpdate!.item < newIndex {
+                    newIndex -= 1
+                }
+            case .move:
+                if updateItem.indexPathBeforeUpdate!.item < newIndex {
+                    newIndex -= 1
+                }
+                if updateItem.indexPathAfterUpdate!.item <= newIndex {
+                    newIndex += 1
+                }
+            default:
+                break
+            }
+        }
+        return newIndex
+    }
+
+    override func finalizeCollectionViewUpdates() {
+        super.finalizeCollectionViewUpdates()
+        updateItems.removeAll(keepingCapacity: true)
     }
 
     // We invalidate the layout when a "bounds change" happens, for example when we scale the top cell. This forces a layout update on the flowlayout.

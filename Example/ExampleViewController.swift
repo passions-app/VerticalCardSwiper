@@ -48,6 +48,10 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
 
         cardSwiper.delegate = self
         cardSwiper.datasource = self
+        cardSwiper.isSideSwipingEnabled = false
+        cardSwiper.stackedCardsCount = 3
+        cardSwiper.visibleNextCardHeight = 20
+        cardSwiper.verticalCardSwiperView.isScrollEnabled = false
 
         // register cardcell for storyboard use
         cardSwiper.register(nib: UINib(nibName: "ExampleCell", bundle: nil), forCellWithReuseIdentifier: "ExampleCell")
@@ -69,13 +73,13 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
         let c3 = Contact(name: "testUser3", age: 12)
         let c4 = Contact(name: "testUser4", age: 12)
         let c5 = Contact(name: "testUser5", age: 12)
-        contactsDemoData.insert(c1, at: 0)
-        contactsDemoData.insert(c2, at: 1)
-        contactsDemoData.insert(c3, at: 2)
-        contactsDemoData.insert(c4, at: 3)
-        contactsDemoData.insert(c5, at: 4)
+        contactsDemoData.append(c1)
+        contactsDemoData.append(c2)
+        contactsDemoData.append(c3)
+        contactsDemoData.append(c4)
+        contactsDemoData.append(c5)
 
-        cardSwiper.insertCards(at: [0, 1, 2, 3, 4])
+        cardSwiper.insertCards(at: Array((contactsDemoData.count - 5)..<contactsDemoData.count))
     }
 
     @IBAction func pressScrollUp(_ sender: UIBarButtonItem) {
@@ -114,5 +118,12 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
 
     func didSwipeCardAway(card: CardCell, index: Int, swipeDirection: SwipeDirection) {
         // called when a card has animated off screen entirely.
+    }
+
+    func didTapCard(verticalCardSwiperView: VerticalCardSwiperView, index: Int) {
+        if let index = cardSwiper.focussedCardIndex {
+            contactsDemoData.remove(at: index)
+            cardSwiper.deleteCards(at: [index])
+        }
     }
 }
