@@ -58,13 +58,14 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
     }
 
     @IBAction func pressRemoveCards(_ sender: UIBarButtonItem) {
-        // remove the first 5 (or less) cards
-        var indexesToRemove: [Int] = []
-        for i in (0...4).reversed() where i < contactsDemoData.count {
-            contactsDemoData.remove(at: i)
-            indexesToRemove.append(i)
-        }
-        cardSwiper.deleteCards(at: indexesToRemove)
+        let c1 = Contact(name: "testUser1", age: 12)
+        let oldData = contactsDemoData
+        var tmpData = oldData
+        tmpData.insert(c1, at: 0)
+        let newData = tmpData
+        cardSwiper.animateItemChanges(oldData: oldData, newData: newData, updateData: { newData in
+            self.contactsDemoData = newData
+        })
     }
 
     @IBAction func pressAddCards(_ sender: UIBarButtonItem) {
@@ -73,13 +74,18 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
         let c3 = Contact(name: "testUser3", age: 12)
         let c4 = Contact(name: "testUser4", age: 12)
         let c5 = Contact(name: "testUser5", age: 12)
-        contactsDemoData.append(c1)
-        contactsDemoData.append(c2)
-        contactsDemoData.append(c3)
-        contactsDemoData.append(c4)
-        contactsDemoData.append(c5)
 
-        cardSwiper.insertCards(at: Array((contactsDemoData.count - 5)..<contactsDemoData.count))
+        let oldData = contactsDemoData
+        var tmpData = oldData
+        tmpData.append(c1)
+        tmpData.append(c2)
+        tmpData.append(c3)
+        tmpData.append(c4)
+        tmpData.append(c5)
+        let newData = tmpData
+        cardSwiper.animateItemChanges(oldData: oldData, newData: newData, updateData: { newData in
+            self.contactsDemoData = newData
+        })
     }
 
     @IBAction func pressScrollUp(_ sender: UIBarButtonItem) {
@@ -122,8 +128,13 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
 
     func didTapCard(verticalCardSwiperView: VerticalCardSwiperView, index: Int) {
         if let index = cardSwiper.focussedCardIndex {
-            contactsDemoData.remove(at: index)
-            cardSwiper.deleteCards(at: [index])
+            let oldData = contactsDemoData
+            var tmpData = oldData
+            tmpData.remove(at: index)
+            let newData = tmpData
+            cardSwiper.animateItemChanges(oldData: oldData, newData: newData, updateData: { newData in
+                self.contactsDemoData = newData
+            })
         }
     }
 }

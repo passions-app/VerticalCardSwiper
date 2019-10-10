@@ -22,7 +22,11 @@
 
 import Foundation
 
-internal class Contact {
+internal class Contact: Equatable {
+    static func == (lhs: Contact, rhs: Contact) -> Bool {
+        return lhs.name == rhs.name && lhs.age == rhs.age
+    }
+
 
     let name: String!
     let age: Int!

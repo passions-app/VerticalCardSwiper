@@ -50,4 +50,11 @@ class ExampleCardCell: CardCell {
         self.layer.cornerRadius = 12
         super.layoutSubviews()
     }
+
+    @IBAction private func buttonTapped() {
+        let controller = UIAlertController(title: "toto", message: "toto", preferredStyle: .actionSheet)
+
+        controller.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
+        UIApplication.shared.windows.first?.rootViewController?.present(controller, animated: true, completion: nil)
+    }
 }

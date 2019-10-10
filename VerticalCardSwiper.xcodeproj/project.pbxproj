@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A6A4D34EC9C9A81E7E43B6B /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD57610996065E82B2E2165B /* Pods_Example.framework */; };
+		63B48F7A76D2A0E7EE7C982F /* Pods_VerticalCardSwiper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF3F14F6CD57F76F4874CC1 /* Pods_VerticalCardSwiper.framework */; };
 		6C0A75EC20CC26D100B63355 /* VerticalCardSwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0A75EA20CC260300B63355 /* VerticalCardSwiperView.swift */; };
 		6C24E27920A070DE001367E7 /* CardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C24E27720A07074001367E7 /* CardDelegate.swift */; };
 		6C24E27C20A0713B001367E7 /* PanDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C24E27A20A0711C001367E7 /* PanDirection.swift */; };
@@ -67,6 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		421B6CBEA24227977030CBDE /* Pods-VerticalCardSwiper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerticalCardSwiper.debug.xcconfig"; path = "Target Support Files/Pods-VerticalCardSwiper/Pods-VerticalCardSwiper.debug.xcconfig"; sourceTree = "<group>"; };
 		6C0A75EA20CC260300B63355 /* VerticalCardSwiperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCardSwiperView.swift; sourceTree = "<group>"; };
 		6C24E27720A07074001367E7 /* CardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDelegate.swift; sourceTree = "<group>"; };
 		6C24E27A20A0711C001367E7 /* PanDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanDirection.swift; sourceTree = "<group>"; };
@@ -97,6 +100,11 @@
 		6CF8AC5F209EFFBF00A0B26E /* VerticalCardSwiperFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerticalCardSwiperFlowLayout.swift; path = Sources/VerticalCardSwiperFlowLayout.swift; sourceTree = SOURCE_ROOT; };
 		6CF8AC60209EFFBF00A0B26E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Extensions.swift; sourceTree = SOURCE_ROOT; };
 		6CF8AC62209EFFBF00A0B26E /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardCell.swift; path = Sources/CardCell.swift; sourceTree = SOURCE_ROOT; };
+		71F47544EB8FB602C7C9D322 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		851A2245B78B177306ACD640 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		C24FAD9B621F2D1CB43B3545 /* Pods-VerticalCardSwiper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerticalCardSwiper.release.xcconfig"; path = "Target Support Files/Pods-VerticalCardSwiper/Pods-VerticalCardSwiper.release.xcconfig"; sourceTree = "<group>"; };
+		CD57610996065E82B2E2165B /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF3F14F6CD57F76F4874CC1 /* Pods_VerticalCardSwiper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VerticalCardSwiper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B48F7A76D2A0E7EE7C982F /* Pods_VerticalCardSwiper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,12 +128,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C51A121209E707900B83A82 /* VerticalCardSwiper.framework in Frameworks */,
+				2A6A4D34EC9C9A81E7E43B6B /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D33F24B721EDE1627597DC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71F47544EB8FB602C7C9D322 /* Pods-Example.debug.xcconfig */,
+				851A2245B78B177306ACD640 /* Pods-Example.release.xcconfig */,
+				421B6CBEA24227977030CBDE /* Pods-VerticalCardSwiper.debug.xcconfig */,
+				C24FAD9B621F2D1CB43B3545 /* Pods-VerticalCardSwiper.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6C51A118209E6DC700B83A82 /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +183,8 @@
 				6CE68C621F15729800CFFA14 /* Sources */,
 				6CAB38FB20D0074000FC4C8A /* UITests */,
 				6CE68C611F15729800CFFA14 /* Products */,
+				2D33F24B721EDE1627597DC2 /* Pods */,
+				F97CC22D541496830783EE5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +217,15 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		F97CC22D541496830783EE5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD57610996065E82B2E2165B /* Pods_Example.framework */,
+				EAF3F14F6CD57F76F4874CC1 /* Pods_VerticalCardSwiper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -211,6 +244,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6C51A115209E6D6900B83A82 /* Build configuration list for PBXNativeTarget "VerticalCardSwiper" */;
 			buildPhases = (
+				8E8F60C443EFEF7F332D8DC1 /* [CP] Check Pods Manifest.lock */,
 				6C51A10B209E6D6900B83A82 /* Sources */,
 				6C51A10C209E6D6900B83A82 /* Frameworks */,
 				6C51A10D209E6D6900B83A82 /* Headers */,
@@ -248,10 +282,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CE68C751F15729800CFFA14 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
+				669E2D163F64D8E7472DC5C8 /* [CP] Check Pods Manifest.lock */,
 				6CE68C5C1F15729800CFFA14 /* Sources */,
 				6CE68C5D1F15729800CFFA14 /* Frameworks */,
 				6CE68C5E1F15729800CFFA14 /* Resources */,
 				6C51A125209E707900B83A82 /* Embed Frameworks */,
+				F03CC1A5B8E0455E8EB134A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -343,6 +379,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		669E2D163F64D8E7472DC5C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6C4B9FC921FDF39400C07547 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,6 +417,46 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		8E8F60C443EFEF7F332D8DC1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VerticalCardSwiper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F03CC1A5B8E0455E8EB134A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -436,6 +534,7 @@
 /* Begin XCBuildConfiguration section */
 		6C51A116209E6D6900B83A82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 421B6CBEA24227977030CBDE /* Pods-VerticalCardSwiper.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -466,6 +565,7 @@
 		};
 		6C51A117209E6D6900B83A82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C24FAD9B621F2D1CB43B3545 /* Pods-VerticalCardSwiper.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -647,6 +747,7 @@
 		};
 		6CE68C761F15729800CFFA14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71F47544EB8FB602C7C9D322 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -663,6 +764,7 @@
 		};
 		6CE68C771F15729800CFFA14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 851A2245B78B177306ACD640 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

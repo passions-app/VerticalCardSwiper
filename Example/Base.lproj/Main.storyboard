@@ -34,7 +34,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Z2V-KD-7Kc">
                         <leftBarButtonItems>
-                            <barButtonItem title="-5" id="M9K-sE-3Gx">
+                            <barButtonItem systemItem="refresh" id="M9K-sE-3Gx">
                                 <connections>
                                     <action selector="pressRemoveCards:" destination="BYZ-38-t0r" id="SGM-of-99T"/>
                                 </connections>

@@ -22,6 +22,8 @@
 
 import Foundation
 
+import Differ
+
 /**
  The VerticalCardSwiper is a subclass of `UIView` that has a `VerticalCardSwiperView` embedded.
  
@@ -153,46 +155,13 @@ public class VerticalCardSwiper: UIView {
         commonInit()
     }
 
-    /**
-     Inserts new cards at the specified indexes.
-
-     Call this method to insert one or more new cards into the cardSwiper.
-     You might do this when your data source object receives data for new items or in response to user interactions with the cardSwiper.
-     - parameter indexes: An array of integers at which to insert the new card. This parameter must not be nil.
-     */
-    public func insertCards(at indexes: [Int]) {
-        performUpdates {
-            self.verticalCardSwiperView.insertItems(at: indexes.map { (index) -> IndexPath in
-                return convertIndexToIndexPath(for: index)
-            })
-        }
-    }
-
-    /**
-     Deletes cards at the specified indexes.
-
-     Call this method to delete one or more new cards from the cardSwiper.
-     You might do this when you remove the items from your data source object or in response to user interactions with the cardSwiper.
-     - parameter indexes: An array of integers at which to delete the card. This parameter must not be nil.
-     */
-    public func deleteCards(at indexes: [Int]) {
-        performUpdates {
-            self.verticalCardSwiperView.deleteItems(at: indexes.map { (index) -> IndexPath in
-                return self.convertIndexToIndexPath(for: index)
-            })
-        }
-    }
-
-    /**
-     Moves an item from one location to another in the collection view.
-
-     Use this method to reorganize existing cards. You might do this when you rearrange the items within your data source object or in response to user interactions with the cardSwiper. The cardSwiper updates the layout as needed to account for the move, animating cards into position as needed.
-
-     - parameter atIndex: The index of the card you want to move. This parameter must not be nil.
-     - parameter toIndex: The index of the card’s new location. This parameter must not be nil.
-     */
-    public func moveCard(at atIndex: Int, to toIndex: Int) {
-        self.verticalCardSwiperView.moveItem(at: convertIndexToIndexPath(for: atIndex), to: convertIndexToIndexPath(for: toIndex))
+    public func animateItemChanges<T: Collection>(
+        oldData: T,
+        newData: T,
+        updateData: ((T) -> Void)? = nil,
+        completion: ((Bool) -> Void)? = nil
+        ) where T.Element: Equatable {
+        verticalCardSwiperView.animateItemChanges(oldData: oldData, newData: newData, updateData: updateData, completion: completion)
     }
 
     private func commonInit() {
@@ -200,14 +169,6 @@ public class VerticalCardSwiper: UIView {
         setupConstraints()
         setCardSwiperInsets()
         setupGestureRecognizer()
-    }
-
-    private func performUpdates(updateClosure: () -> Void) {
-        self.verticalCardSwiperView.performBatchUpdates({
-            updateClosure()
-        }, completion: { [weak self] _ in
-            self?.verticalCardSwiperView.collectionViewLayout.invalidateLayout()
-        })
     }
 }
 
