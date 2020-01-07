@@ -158,7 +158,7 @@ public class VerticalCardSwiper: UIView {
     public func animateItemChanges<T: Collection>(
         oldData: T,
         newData: T,
-        updateData: ((T) -> Void)? = nil,
+        updateData: (() -> Void),
         completion: ((Bool) -> Void)? = nil
         ) where T.Element: Equatable {
         verticalCardSwiperView.animateItemChanges(oldData: oldData, newData: newData, updateData: updateData, completion: completion)

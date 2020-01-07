@@ -143,7 +143,6 @@
 				421B6CBEA24227977030CBDE /* Pods-VerticalCardSwiper.debug.xcconfig */,
 				C24FAD9B621F2D1CB43B3545 /* Pods-VerticalCardSwiper.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -749,7 +748,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 71F47544EB8FB602C7C9D322 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CYC8C8R4K9;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
@@ -766,7 +764,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 851A2245B78B177306ACD640 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CYC8C8R4K9;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";

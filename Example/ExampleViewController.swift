@@ -63,7 +63,7 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
         var tmpData = oldData
         tmpData.insert(c1, at: 0)
         let newData = tmpData
-        cardSwiper.animateItemChanges(oldData: oldData, newData: newData, updateData: { newData in
+        cardSwiper.animateItemChanges(oldData: oldData, newData: newData, updateData: {
             self.contactsDemoData = newData
         })
     }
@@ -83,7 +83,7 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
         tmpData.append(c4)
         tmpData.append(c5)
         let newData = tmpData
-        cardSwiper.animateItemChanges(oldData: oldData, newData: newData, updateData: { newData in
+        cardSwiper.animateItemChanges(oldData: oldData, newData: newData, updateData: {
             self.contactsDemoData = newData
         })
     }
@@ -132,7 +132,7 @@ class ExampleViewController: UIViewController, VerticalCardSwiperDelegate, Verti
             var tmpData = oldData
             tmpData.remove(at: index)
             let newData = tmpData
-            cardSwiper.animateItemChanges(oldData: oldData, newData: newData, updateData: { newData in
+            cardSwiper.animateItemChanges(oldData: oldData, newData: newData, updateData: {
                 self.contactsDemoData = newData
             })
         }
